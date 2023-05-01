@@ -7,7 +7,7 @@ def caesar_cipher(text, key, encrypt=True):
             key_amount = shift % 26  
             new_char_code = ord(char) + key_amount
 
-            if char.islower():   
+            if char.islower():          
                 if new_char_code > ord('z'):  
                     new_char_code -= 26  
                     
@@ -15,7 +15,7 @@ def caesar_cipher(text, key, encrypt=True):
                     new_char_code += 26
                     
                     
-            else:  
+            else:         
                 if new_char_code > ord('Z'):
                     new_char_code -= 26
                     
@@ -25,7 +25,19 @@ def caesar_cipher(text, key, encrypt=True):
             result += chr(new_char_code)
             
             
-        else:  
+        else: 
             result += char
 
     return result
+
+
+text = "Caesar salad"
+key = 4
+
+
+encrypted_text = caesar_cipher(text, key, encrypt=True)
+print("Encrypted text:", encrypted_text)
+
+
+decrypted_text = caesar_cipher(encrypted_text, key, encrypt=False)
+print("Decrypted text:", decrypted_text)
