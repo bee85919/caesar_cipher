@@ -3,19 +3,19 @@ def caesar_cipher(text, key, encrypt=True):
     shift = key if encrypt else -key
 
     for char in text:
-        if char.isalpha():  
-            key_amount = shift % 26  
+        if char.isalpha():  # when char == alphabet
+            key_amount = shift % 26  # when key > 26
             new_char_code = ord(char) + key_amount
 
-            if char.islower():          
-                if new_char_code > ord('z'):  
-                    new_char_code -= 26  
+            if char.islower():  # when char == lowercase                
+                if new_char_code > ord('z'):  # ord(char) → num
+                    new_char_code -= 26  # for in range of alphabets
                     
                 elif new_char_code < ord('a'):
                     new_char_code += 26
                     
                     
-            else:         
+            else:  # when char == uppercase                
                 if new_char_code > ord('Z'):
                     new_char_code -= 26
                     
@@ -25,7 +25,7 @@ def caesar_cipher(text, key, encrypt=True):
             result += chr(new_char_code)
             
             
-        else: 
+        else:  # when char == space
             result += char
 
     return result
